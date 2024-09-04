@@ -26,8 +26,8 @@ x = np.linspace(-10,10,101)
 y = np.linspace(-10,10,101)
 X, Y = np.meshgrid(x, y)
 
-psi = A*X*Y
-phi = 1/2*(X**2-Y**2)
+psi = X*Y
+#phi = 1/2*(X**2-Y**2)
 
 u = A*X
 v = -Y*A
@@ -39,31 +39,30 @@ figsize = (7, 6)
 #field liner
 _,f = plt.subplots(figsize=figsize)
 f.contour(X,Y,psi,levels=30, colors ='k')
-f.contour(X,Y,phi,levels=10, colors ='r')
+#f.contour(X,Y,phi,levels=10, colors ='r')
 f.set_xlabel('x-aksen')
 f.set_ylabel('y-aksen')
 plt.show()
 
-#gradient
-fig2,ax2 = plt.subplots(figsize=figsize)
-cbar = ax2.contourf(X,Y,u_magnitude, levels=10)
-fig2.colorbar(cbar, ax=ax2, label='U m/s')
-ax2.set_title('Plot of velocity magnitude')
-ax2.set_aspect('equal') # Ensures figure is not stretched
-ax2.set_xlabel('x')
-ax2.set_ylabel('y')
-plt.show()
+# #gradient
+# fig2,ax2 = plt.subplots(figsize=figsize)
+# cbar = ax2.contourf(X,Y,u_magnitude, levels=10)
+# fig2.colorbar(cbar, ax=ax2, label='U m/s')
+# ax2.set_title('Plot of velocity magnitude')
+# ax2.set_aspect('equal') # Ensures figure is not stretched
+# ax2.set_xlabel('x')
+# ax2.set_ylabel('y')
+# plt.show()
 
 
-#vektorfelt
-__, ax3 = plt.subplots(figsize=figsize)
-skip = 5 # Number of vector grid points to skip during plotting
-ax3.quiver(X[::skip, ::skip], Y[::skip, ::skip],
-           u[::skip, ::skip], v[::skip, ::skip]
-)
-ax3.set_title('Plot of velocity vectors')
-ax3.set_aspect('equal') # Ensures figure is not stretched
-ax3.set_xlabel('x')
-ax3.set_ylabel('y')
-plt.show()
- 
+# #vektorfelt
+# __, ax3 = plt.subplots(figsize=figsize)
+# skip = 5 # Number of vector grid points to skip during plotting
+# ax3.quiver(X[::skip, ::skip], Y[::skip, ::skip],
+#            u[::skip, ::skip], v[::skip, ::skip]
+# )
+# ax3.set_title('Plot of velocity vectors')
+# ax3.set_aspect('equal') # Ensures figure is not stretched
+# ax3.set_xlabel('x')
+# ax3.set_ylabel('y')
+# plt.show()
