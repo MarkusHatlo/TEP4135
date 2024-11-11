@@ -31,15 +31,20 @@ def dele(importListe):
                 x_values.append(float(i))
             elif i_no == 1:
                 y_values.append(float(i))
-            elif i_no == 2:
-                u_values.append(float(i))
             elif i_no == 3:
+                u_values.append(float(i))
+            elif i_no == 4:
                 v_values.append(float(i))
     return x_values, y_values, u_values, v_values
 
-x, y, u, v = dele(normal_to_wedge_p)
-print('hei')
-print(x)
+x_u, y_u, u, v = dele(normal_to_wedge_U)
+x_p, y_p, p, k = dele(normal_to_wedge_p)
 
-plt.plot(x,v)
+#U, V = np.meshgrid(u,v)
+#x, y = np.meshgrid(x,y)
+
+plt.plot(x_p,p)
+plt.xlabel('u')
+plt.ylabel('y')
+plt.grid()
 plt.show()
