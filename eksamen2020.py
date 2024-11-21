@@ -16,6 +16,7 @@ phi = q/(2*np.pi)*(np.arctan2(y,(x-d)) - k*np.arctan2(y,x) + np.arctan2(y,(x+d))
 levels = np.logspace(-4,0,20)
 levels = np.insert(levels,0,[0.0])
 
+
 _,f1 = plt.subplots()
 f1.contour(x,y,phi,levels, color="black")
 plt.show()
