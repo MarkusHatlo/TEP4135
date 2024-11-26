@@ -1,0 +1,31 @@
+import numpy as np
+import sympy as sp
+import matplotlib.pyplot as plt
+
+x = np.linspace(-5,5,101)
+y = np.linspace(-5,5,101)
+
+x, y = np.meshgrid(x, y)
+
+r = np.sqrt(x**2+y**2)
+
+
+theta = np.arctan2(y,x)
+
+b = 1
+u = 1
+
+psi = u*y -b/r*np.sin(theta)
+u_verdi = u - b*np.cos(theta)/r**2*np.cos(theta)
+v_verdi = - b*np.cos(theta)/r**2*np.sin(theta)
+
+fart_max = np.sqrt(u_verdi**2+v_verdi**2)
+
+_,f1 = plt.subplots()
+
+# f1.contour(x,y,psi,levels = 20, colors = 'b')
+# f1.contour(x,y,psi,levels =  [1], colors = 'r')
+
+f1.contourf(x,y,fart_max,levels = 100)
+
+plt.show()
